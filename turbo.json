@@ -1,7 +1,27 @@
 {
   "$schema": "https://turbo.build/schema.json",
+
   "pipeline": {
-    "build": {},
-    "lint": {}
+    "build": {
+      "cache": false,
+      "dependsOn": ["parse-data", "build:types"]
+    },
+    "build:types": {
+      "cache": false
+    },
+    "lint": {},
+    "get-data": {
+      "cache": false,
+      "outputMode": "full",
+      "inputs": ["src/**"]
+    },
+    "normalize-data": {
+      "cache": false,
+      "dependsOn": ["get-data"]
+    },
+    "parse-data": {
+      "cache": false,
+      "dependsOn": ["normalize-data"]
+    }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "@desoukysvyc/currency",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "echo 'Add dev script here'",
+    "test": "echo 'Add test script here'",
+    "lint": "echo 'Add lint script here'",
+    "get-data": "ts-node tasks/getData.ts",
+    "normalize-data": "ts-node ../../utils/normalizeCsv.ts Code src/data/fetched_data.csv",
+    "parse-data": "ts-node tasks/parseData.ts",
+    "build:types":"tsc ",
+    "build": "swc ./src -d dist --copy-files"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "@desoukysvyc/data-utils": "*"
+  }
+}

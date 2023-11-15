@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/swcrc",
+    "module": {
+      "type": "es6",
+      // These are defaults.
+      "strict": false,
+      "strictMode": true,
+      "lazy": false,
+      "noInterop": false
+    }
+  }
