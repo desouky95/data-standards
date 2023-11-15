@@ -3,8 +3,9 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
-  "access": "restricted",
+  "linked": [["@desoukysvyc/data-utils", "@desoukysvyc/currency"]],
+  "access": "public",
+  "privatePackages": {"tag": true,"version": true},
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": []
