@@ -8,13 +8,18 @@
     "get-data": "ts-node tasks/getData.ts",
     "normalize-data": "ts-node ../../utils/normalizeCsv.ts Code src/data/fetched_data.csv",
     "parse-data": "ts-node tasks/parseData.ts",
-    "build:types":"tsc ",
+    "build:types": "tsc ",
     "build": "swc ./src -d dist --copy-files"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
     "@desoukysvyc/data-utils": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

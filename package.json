@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.ts -w",
-    "build-packages": "turbo run build  --filter=!data-utils",
+    "build-packages": "turbo run build",
     "changeset-packages": "changeset version && changeset publish",
     "publish-packages": "npm run build-packages && npm run changeset-packages"
   },

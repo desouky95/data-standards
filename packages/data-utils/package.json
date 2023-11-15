@@ -2,11 +2,13 @@
   "name": "@desoukysvyc/data-utils",
   "version": "0.0.0",
   "main": "index.ts",
-  "private": true,
   "scripts": {
     "dev": "echo 'Add dev script here'",
-    "build": "echo 'Add build script here'",
+    "build": "swc ./index.ts -d dist --config-file ../../.swcrc",
     "test": "echo 'Add test script here'",
     "lint": "echo 'Add lint script here'"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
