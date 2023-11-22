@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "target": "ES2015",
+    "declaration": true,
+    // "declarationMap": true,
+    "module": "NodeNext",
+    "emitDeclarationOnly": true,
+    "sourceMap": false,
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true
+  },
+  "include": ["./src/**/*"],
+}

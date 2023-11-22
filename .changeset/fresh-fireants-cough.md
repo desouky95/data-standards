@@ -1,5 +1,0 @@
----
-"@desoukysvyc/currency": patch
----
-
-Changes

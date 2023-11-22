@@ -3,12 +3,9 @@
 
   "pipeline": {
     "build": {
-      "cache": false,
-      "dependsOn": ["parse-data", "build:types"]
-    },
-    "build:types": {
       "cache": false
     },
+
     "lint": {},
     "get-data": {
       "cache": false,
@@ -16,12 +13,17 @@
       "inputs": ["src/**"]
     },
     "normalize-data": {
-      "cache": false,
-      "dependsOn": ["get-data"]
+      "cache": false
     },
     "parse-data": {
       "cache": false,
       "dependsOn": ["normalize-data"]
-    }
+    },
+    "copy-package": {
+      "inputs": ["./utils/copyPackage.ts"],
+      "cache": false
+    },
+    "dev": { "cache": false },
+    "test": { "cache": false }
   }
 }

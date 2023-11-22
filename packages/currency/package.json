@@ -1,25 +1,27 @@
 {
   "name": "@desoukysvyc/currency",
-  "version": "0.0.0",
+  "version": "0.0.17",
+  "main": "./dist/index.js",
   "scripts": {
-    "dev": "echo 'Add dev script here'",
-    "test": "echo 'Add test script here'",
-    "lint": "echo 'Add lint script here'",
-    "get-data": "ts-node tasks/getData.ts",
-    "normalize-data": "ts-node ../../utils/normalizeCsv.ts Code src/data/fetched_data.csv",
-    "parse-data": "ts-node tasks/parseData.ts",
     "build:types": "tsc ",
-    "build": "swc ./src -d dist --copy-files"
+    "transpile": "swc ./src -d dist --copy-files --config-file ../../.swcrc",
+    "build": "npm run build:types && npm run transpile",
+    "copy-package": "ts-node ../../utils/copyPackage.ts",
+    "prepublish": "npm run copy-package",
+    "publish": "npm publish dist",
+    "test" : "mocha --recursive --require ts-node/register test/*.spec.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@desoukysvyc/data-collector": "*"
+  },
   "peerDependencies": {
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1",
-    "@desoukysvyc/data-utils": "*"
+    "ts-node": "^10.9.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "./dist"
   }
 }

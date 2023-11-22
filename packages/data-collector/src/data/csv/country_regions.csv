@@ -1,0 +1,250 @@
+Country / Area,Continent,Region
+"Algeria",Africa,Northern Africa
+"Egypt",Africa,Northern Africa
+"Libya",Africa,Northern Africa
+"Morocco",Africa,Northern Africa
+"Sudan",Africa,Northern Africa
+"Tunisia",Africa,Northern Africa
+"Western Sahara",Africa,Northern Africa
+"British Indian Ocean Territory",Africa,Eastern Africa
+"Burundi",Africa,Eastern Africa
+"Comoros",Africa,Eastern Africa
+"Djibouti",Africa,Eastern Africa
+"Eritrea",Africa,Eastern Africa
+"Ethiopia",Africa,Eastern Africa
+"French Southern and Antarctic Lands",Africa,Eastern Africa
+"Kenya",Africa,Eastern Africa
+"Madagascar",Africa,Eastern Africa
+"Malawi",Africa,Eastern Africa
+"Mauritius",Africa,Eastern Africa
+"Mayotte",Africa,Eastern Africa
+"Mozambique",Africa,Eastern Africa
+"Réunion",Africa,Eastern Africa
+"Rwanda",Africa,Eastern Africa
+"Seychelles",Africa,Eastern Africa
+"Somalia",Africa,Eastern Africa
+"South Sudan",Africa,Eastern Africa
+"Uganda",Africa,Eastern Africa
+"Tanzania",Africa,Eastern Africa
+"Zambia",Africa,Eastern Africa
+"Zimbabwe",Africa,Eastern Africa
+"Angola",Africa,Middle Africa
+"Cameroon",Africa,Middle Africa
+"Central African Republic",Africa,Middle Africa
+"Chad",Africa,Middle Africa
+"Republic of the Congo",Africa,Middle Africa
+"Democratic Republic of the Congo",Africa,Middle Africa
+"Equatorial Guinea",Africa,Middle Africa
+"Gabon",Africa,Middle Africa
+"São Tomé and Príncipe",Africa,Middle Africa
+"Botswana",Africa,Southern Africa
+"Eswatini",Africa,Southern Africa
+"Lesotho",Africa,Southern Africa
+"Namibia",Africa,Southern Africa
+"South Africa",Africa,Southern Africa
+"Benin",Africa,Western Africa
+"Burkina Faso",Africa,Western Africa
+"Cape Verde",Africa,Western Africa
+"Ivory Coast",Africa,Western Africa
+"The Gambia",Africa,Western Africa
+"Ghana",Africa,Western Africa
+"Guinea",Africa,Western Africa
+"Guinea-Bissau",Africa,Western Africa
+"Liberia",Africa,Western Africa
+"Mali",Africa,Western Africa
+"Mauritania",Africa,Western Africa
+"Niger",Africa,Western Africa
+"Nigeria",Africa,Western Africa
+"Saint Helena, Ascension and Tristan da Cunha",Africa,Western Africa
+"Senegal",Africa,Western Africa
+"Sierra Leone",Africa,Western Africa
+"Togo",Africa,Western Africa
+"Anguilla",North America,Caribbean
+"Antigua and Barbuda",North America,Caribbean
+"Aruba",North America,Caribbean
+"The Bahamas",North America,Caribbean
+"Barbados",North America,Caribbean
+"Caribbean Netherlands",North America,Caribbean
+"British Virgin Islands",North America,Caribbean
+"Cayman Islands",North America,Caribbean
+"Cuba",North America,Caribbean
+"Curaçao",North America,Caribbean
+"Dominica",North America,Caribbean
+"Dominican Republic",North America,Caribbean
+"Grenada",North America,Caribbean
+"Guadeloupe",North America,Caribbean
+"Haiti",North America,Caribbean
+"Jamaica",North America,Caribbean
+"Martinique",North America,Caribbean
+"Montserrat",North America,Caribbean
+"Puerto Rico",North America,Caribbean
+"Saint Barthélemy",North America,Caribbean
+"Saint Kitts and Nevis",North America,Caribbean
+"Saint Lucia",North America,Caribbean
+"Collectivity of Saint Martin",North America,Caribbean
+"Saint Vincent and the Grenadines",North America,Caribbean
+"Sint Maarten",North America,Caribbean
+"Trinidad and Tobago",North America,Caribbean
+"Turks and Caicos Islands",North America,Caribbean
+"United States Virgin Islands",North America,Caribbean
+"Belize",North America,Central America
+"Costa Rica",North America,Central America
+"El Salvador",North America,Central America
+"Guatemala",North America,Central America
+"Honduras",North America,Central America
+"Mexico",North America,Central America
+"Nicaragua",North America,Central America
+"Panama",North America,Central America
+"Argentina",South America,Southern America
+"Bolivia",South America,Southern America
+"Bouvet Island",South America,Southern America
+"Brazil",South America,Southern America
+"Chile",South America,Southern America
+"Colombia",South America,Southern America
+"Ecuador",South America,Southern America
+"Falkland Islands",South America,Southern America
+"French Guiana",South America,Southern America
+"Guyana",South America,Southern America
+"Paraguay",South America,Southern America
+"Peru",South America,Southern America
+"South Georgia and the South Sandwich Islands",South America,Southern America
+"Suriname",South America,Southern America
+"Uruguay",South America,Southern America
+"Venezuela",South America,Southern America
+"Bermuda",North America,Northern America
+"Canada",North America,Northern America
+"Greenland",North America,Northern America
+"Saint Pierre and Miquelon",North America,Northern America
+"United States",North America,Northern America
+"Antarctica",Antarctica,Antarctica
+"Kazakhstan",Asia,Central Asia
+"Kyrgyzstan",Asia,Central Asia
+"Tajikistan",Asia,Central Asia
+"Turkmenistan",Asia,Central Asia
+"Uzbekistan",Asia,Central Asia
+"China",Asia,Eastern Asia
+"Hong Kong",Asia,Eastern Asia
+"Macau",Asia,Eastern Asia
+"North Korea",Asia,Eastern Asia
+"Japan",Asia,Eastern Asia
+"Mongolia",Asia,Eastern Asia
+"South Korea",Asia,Eastern Asia
+"Brunei",Asia,South-eastern Asia
+"Cambodia",Asia,South-eastern Asia
+"Indonesia",Asia,South-eastern Asia
+"Laos",Asia,South-eastern Asia
+"Malaysia",Asia,South-eastern Asia
+"Myanmar",Asia,South-eastern Asia
+"Philippines",Asia,South-eastern Asia
+"Singapore",Asia,South-eastern Asia
+"Thailand",Asia,South-eastern Asia
+"East Timor",Asia,South-eastern Asia
+"Vietnam",Asia,South-eastern Asia
+"Afghanistan",Asia,Southern Asia
+"Bangladesh",Asia,Southern Asia
+"Bhutan",Asia,Southern Asia
+"India",Asia,Southern Asia
+"Iran",Asia,Southern Asia
+"Maldives",Asia,Southern Asia
+"Nepal",Asia,Southern Asia
+"Pakistan",Asia,Southern Asia
+"Sri Lanka",Asia,Southern Asia
+"Armenia",Asia,Western Asia
+"Azerbaijan",Asia,Western Asia
+"Bahrain",Asia,Western Asia
+"Cyprus",Asia,Western Asia
+"Georgia (country)",Asia,Western Asia
+"Iraq",Asia,Western Asia
+"Israel",Asia,Western Asia
+"Jordan",Asia,Western Asia
+"Kuwait",Asia,Western Asia
+"Lebanon",Asia,Western Asia
+"Oman",Asia,Western Asia
+"Qatar",Asia,Western Asia
+"Saudi Arabia",Asia,Western Asia
+"State of Palestine",Asia,Western Asia
+"Syria",Asia,Western Asia
+"Turkey",Asia,Western Asia
+"United Arab Emirates",Asia,Western Asia
+"Yemen",Asia,Western Asia
+"Belarus",Europe,Eastern Europe
+"Bulgaria",Europe,Eastern Europe
+"Czech Republic",Europe,Eastern Europe
+"Hungary",Europe,Eastern Europe
+"Poland",Europe,Eastern Europe
+"Moldova",Europe,Eastern Europe
+"Romania",Europe,Eastern Europe
+"Russia",Europe,Eastern Europe
+"Slovakia",Europe,Eastern Europe
+"Ukraine",Europe,Eastern Europe
+"Åland",Europe,Northern Europe
+"Bailiwick of Guernsey",Europe,Northern Europe
+"Jersey",Europe,Northern Europe
+"Sark",Europe,Northern Europe
+"Denmark",Europe,Northern Europe
+"Estonia",Europe,Northern Europe
+"Faroe Islands",Europe,Northern Europe
+"Finland",Europe,Northern Europe
+"Iceland",Europe,Northern Europe
+"Republic of Ireland",Europe,Northern Europe
+"Isle of Man",Europe,Northern Europe
+"Latvia",Europe,Northern Europe
+"Lithuania",Europe,Northern Europe
+"Norway",Europe,Northern Europe
+"Svalbard and Jan Mayen",Europe,Northern Europe
+"Sweden",Europe,Northern Europe
+"United Kingdom",Europe,Northern Europe
+"Albania",Europe,Southern Europe
+"Andorra",Europe,Southern Europe
+"Bosnia and Herzegovina",Europe,Southern Europe
+"Croatia",Europe,Southern Europe
+"Gibraltar",Europe,Southern Europe
+"Greece",Europe,Southern Europe
+"Holy See",Europe,Southern Europe
+"Italy",Europe,Southern Europe
+"Malta",Europe,Southern Europe
+"Montenegro",Europe,Southern Europe
+"North Macedonia",Europe,Southern Europe
+"Portugal",Europe,Southern Europe
+"San Marino",Europe,Southern Europe
+"Serbia",Europe,Southern Europe
+"Slovenia",Europe,Southern Europe
+"Spain",Europe,Southern Europe
+"Austria",Europe,Western Europe
+"Belgium",Europe,Western Europe
+"France",Europe,Western Europe
+"Germany",Europe,Western Europe
+"Liechtenstein",Europe,Western Europe
+"Luxembourg",Europe,Western Europe
+"Monaco",Europe,Western Europe
+"Netherlands",Europe,Western Europe
+"Switzerland",Europe,Western Europe
+"Australia",Oceania,Australia
+"Christmas Island",Oceania,Australia
+"Cocos (Keeling) Islands",Oceania,Australia
+"Heard Island and McDonald Islands",Oceania,Australia
+"New Zealand",Oceania,Australia
+"Norfolk Island",Oceania,Australia
+"Fiji",Oceania,Melanesia
+"New Caledonia",Oceania,Melanesia
+"Papua New Guinea",Oceania,Melanesia
+"Solomon Islands",Oceania,Melanesia
+"Vanuatu",Oceania,Melanesia
+"Guam",Oceania,Micronesia
+"Kiribati",Oceania,Micronesia
+"Marshall Islands",Oceania,Micronesia
+"Federated States of Micronesia",Oceania,Micronesia
+"Nauru",Oceania,Micronesia
+"Northern Mariana Islands",Oceania,Micronesia
+"Palau",Oceania,Micronesia
+"United States Minor Outlying Islands",Oceania,Micronesia
+"American Samoa",Oceania,Polynesia
+"Cook Islands",Oceania,Polynesia
+"French Polynesia",Oceania,Polynesia
+"Niue",Oceania,Polynesia
+"Pitcairn Islands",Oceania,Polynesia
+"Samoa",Oceania,Polynesia
+"Tokelau",Oceania,Polynesia
+"Tonga",Oceania,Polynesia
+"Tuvalu",Oceania,Polynesia
+"Wallis and Futuna",Oceania,Polynesia

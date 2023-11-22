@@ -1,0 +1,27 @@
+{
+  "name": "package-template",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build:types": "tsc ",
+    "transpile": "swc ./src -d dist --copy-files --config-file ../../.swcrc",
+    "build": "npm run build:types && npm run transpile",
+    "copy-package": "ts-node ../../utils/copyPackage.ts",
+    "prepublish": "npm run copy-package",
+    "publish": "npm publish dist",
+    "test": "mocha --recursive --require ts-node/register test/*.spec.ts"
+  },
+  "dependencies": {
+    "@desoukysvyc/data-collector": "*"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "./dist"
+  }
+}

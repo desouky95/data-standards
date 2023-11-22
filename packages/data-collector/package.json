@@ -1,0 +1,26 @@
+{
+  "name": "@desoukysvyc/data-collector",
+  "version": "0.0.17",
+  "main": "src/index.ts",
+  "scripts": {
+    "collect": "ts-node ./tasks/collector.ts",
+    "normalize": "ts-node ./tasks/normalize.ts",
+    "parse": "ts-node ./tasks/parse.ts",
+    "dev": "npm run collect && npm run normalize && npm run parse",
+    "build:types": "tsc ",
+    "copy-package": "ts-node ../../utils/copyPackage.ts",
+    "transpile": "swc ./src -d dist --config-file ../../.swcrc",
+    "build": "npm run build:types && npm run transpile ",
+    "prepublishOnly": "npm run copy-package",
+    "publish": "npm publish dist",
+    "test" : "mocha --recursive --require ts-node/register test/*.spec.ts"
+
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "./dist"
+  },
+  "devDependencies": {
+    "currency-symbol-map": "^5.1.0"
+  }
+}
