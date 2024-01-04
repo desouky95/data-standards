@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build:types": "tsc ",
     "transpile": "swc ./src -d dist --copy-files --config-file ../../.swcrc",
-    "build": "npm run build:types && npm run transpile",
+    "build": "",
     "copy-package": "ts-node ../../utils/copyPackage.ts",
     "prepublish": "npm run copy-package",
     "publish": "npm publish dist",

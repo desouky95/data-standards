@@ -1,1082 +1,1092 @@
-export const callingCodes = [
-    {
-        "countryService": "Afghanistan",
-        "code": "+93"
-    },
-    {
-        "countryService": "Albania",
-        "code": "+355"
-    },
-    {
-        "countryService": "Algeria",
-        "code": "+213"
-    },
-    {
-        "countryService": "American Samoa",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Andorra",
-        "code": "+376"
-    },
-    {
-        "countryService": "Angola",
-        "code": "+244"
-    },
-    {
-        "countryService": "Anguilla",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Antigua and Barbuda",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Argentina",
-        "code": "+54"
-    },
-    {
-        "countryService": "Armenia",
-        "code": "+374"
-    },
-    {
-        "countryService": "Artsakh",
-        "code": "+374 "
-    },
-    {
-        "countryService": "Aruba",
-        "code": "+297"
-    },
-    {
-        "countryService": "Ascension",
-        "code": "+247"
-    },
-    {
-        "countryService": "Australia",
-        "code": "+61"
-    },
-    {
-        "countryService": "Austria",
-        "code": "+43"
-    },
-    {
-        "countryService": "Azerbaijan",
-        "code": "+994"
-    },
-    {
-        "countryService": "Bahamas",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Bahrain",
-        "code": "+973"
-    },
-    {
-        "countryService": "Bangladesh",
-        "code": "+880"
-    },
-    {
-        "countryService": "Barbados",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Belarus",
-        "code": "+375"
-    },
-    {
-        "countryService": "Belgium",
-        "code": "+32"
-    },
-    {
-        "countryService": "Belize",
-        "code": "+501"
-    },
-    {
-        "countryService": "Benin",
-        "code": "+229"
-    },
-    {
-        "countryService": "Bermuda",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Bhutan",
-        "code": "+975"
-    },
-    {
-        "countryService": "Bolivia",
-        "code": "+591"
-    },
-    {
-        "countryService": "Bonaire",
-        "code": "+599 "
-    },
-    {
-        "countryService": "Bosnia and Herzegovina",
-        "code": "+387"
-    },
-    {
-        "countryService": "Botswana",
-        "code": "+267"
-    },
-    {
-        "countryService": "Brazil",
-        "code": "+55"
-    },
-    {
-        "countryService": "British Indian Ocean Territory ",
-        "code": "+246"
-    },
-    {
-        "countryService": "British Virgin Islands",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Brunei Darussalam",
-        "code": "+673"
-    },
-    {
-        "countryService": "Bulgaria",
-        "code": "+359"
-    },
-    {
-        "countryService": "Burkina Faso",
-        "code": "+226"
-    },
-    {
-        "countryService": "Burundi",
-        "code": "+257"
-    },
-    {
-        "countryService": "Cambodia",
-        "code": "+855"
-    },
-    {
-        "countryService": "Cameroon",
-        "code": "+237"
-    },
-    {
-        "countryService": "Canada",
-        "code": "+1"
-    },
-    {
-        "countryService": "Cape Verde",
-        "code": "+238"
-    },
-    {
-        "countryService": "Caribbean Netherlands",
-        "code": "+599 "
-    },
-    {
-        "countryService": "Cayman Islands",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Central African Republic",
-        "code": "+236"
-    },
-    {
-        "countryService": "Chad",
-        "code": "+235"
-    },
-    {
-        "countryService": "Chile",
-        "code": "+56"
-    },
-    {
-        "countryService": "China",
-        "code": "+86"
-    },
-    {
-        "countryService": "Christmas Island",
-        "code": "+61 "
-    },
-    {
-        "countryService": "Cocos  Islands",
-        "code": "+61 "
-    },
-    {
-        "countryService": "Colombia",
-        "code": "+57"
-    },
-    {
-        "countryService": "Comoros",
-        "code": "+269"
-    },
-    {
-        "countryService": "Congo",
-        "code": "+243"
-    },
-    {
-        "countryService": "Cook Islands",
-        "code": "+682"
-    },
-    {
-        "countryService": "Costa Rica",
-        "code": "+506"
-    },
-    {
-        "countryService": "Croatia",
-        "code": "+385"
-    },
-    {
-        "countryService": "Cuba",
-        "code": "+53"
-    },
-    {
-        "countryService": "Curaçao",
-        "code": "+599 "
-    },
-    {
-        "countryService": "Cyprus",
-        "code": "+357"
-    },
-    {
-        "countryService": "Czech Republic",
-        "code": "+420"
-    },
-    {
-        "countryService": "Denmark",
-        "code": "+45"
-    },
-    {
-        "countryService": "Djibouti",
-        "code": "+253"
-    },
-    {
-        "countryService": "Dominica",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Dominican Republic",
-        "code": "+1 "
-    },
-    {
-        "countryService": "East Timor ",
-        "code": "+670"
-    },
-    {
-        "countryService": "Easter Island",
-        "code": "+56"
-    },
-    {
-        "countryService": "Ecuador",
-        "code": "+593"
-    },
-    {
-        "countryService": "Egypt",
-        "code": "+20"
-    },
-    {
-        "countryService": "El Salvador",
-        "code": "+503"
-    },
-    {
-        "countryService": "Ellipso ",
-        "code": "+881 "
-    },
-    {
-        "countryService": "EMSAT ",
-        "code": "+882 "
-    },
-    {
-        "countryService": "Equatorial Guinea",
-        "code": "+240"
-    },
-    {
-        "countryService": "Eritrea",
-        "code": "+291"
-    },
-    {
-        "countryService": "Estonia",
-        "code": "+372"
-    },
-    {
-        "countryService": "Eswatini",
-        "code": "+268"
-    },
-    {
-        "countryService": "Ethiopia",
-        "code": "+251"
-    },
-    {
-        "countryService": "Falkland Islands",
-        "code": "+500"
-    },
-    {
-        "countryService": "Faroe Islands",
-        "code": "+298"
-    },
-    {
-        "countryService": "Fiji",
-        "code": "+679"
-    },
-    {
-        "countryService": "Finland",
-        "code": "+358"
-    },
-    {
-        "countryService": "France",
-        "code": "+33"
-    },
-    {
-        "countryService": "French Antilles",
-        "code": "+596"
-    },
-    {
-        "countryService": "French Guiana",
-        "code": "+594"
-    },
-    {
-        "countryService": "French Polynesia",
-        "code": "+689"
-    },
-    {
-        "countryService": "Gabon",
-        "code": "+241"
-    },
-    {
-        "countryService": "Gambia",
-        "code": "+220"
-    },
-    {
-        "countryService": "Georgia",
-        "code": "+995"
-    },
-    {
-        "countryService": "Germany",
-        "code": "+49"
-    },
-    {
-        "countryService": "Ghana",
-        "code": "+233"
-    },
-    {
-        "countryService": "Gibraltar",
-        "code": "+350"
-    },
-    {
-        "countryService": "Global Mobile Satellite System ",
-        "code": "+881"
-    },
-    {
-        "countryService": "Globalstar ",
-        "code": "+881 "
-    },
-    {
-        "countryService": "Greece",
-        "code": "+30"
-    },
-    {
-        "countryService": "Greenland",
-        "code": "+299"
-    },
-    {
-        "countryService": "Grenada",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Guadeloupe",
-        "code": "+590"
-    },
-    {
-        "countryService": "Guam",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Guatemala",
-        "code": "+502"
-    },
-    {
-        "countryService": "Guernsey",
-        "code": "+44 "
-    },
-    {
-        "countryService": "Guinea",
-        "code": "+224"
-    },
-    {
-        "countryService": "Guinea-Bissau",
-        "code": "+245"
-    },
-    {
-        "countryService": "Guyana",
-        "code": "+592"
-    },
-    {
-        "countryService": "Haiti",
-        "code": "+509"
-    },
-    {
-        "countryService": "Honduras",
-        "code": "+504"
-    },
-    {
-        "countryService": "Hong Kong",
-        "code": "+852"
-    },
-    {
-        "countryService": "Hungary",
-        "code": "+36"
-    },
-    {
-        "countryService": "Iceland",
-        "code": "+354"
-    },
-    {
-        "countryService": "ICO Global ",
-        "code": "+881 "
-    },
-    {
-        "countryService": "India",
-        "code": "+91"
-    },
-    {
-        "countryService": "Indonesia",
-        "code": "+62"
-    },
-    {
-        "countryService": "Inmarsat SNAC",
-        "code": "+870"
-    },
-    {
-        "countryService": "International Freephone Service ",
-        "code": "+800"
-    },
-    {
-        "countryService": "International Networks",
-        "code": "+882883"
-    },
-    {
-        "countryService": "International Premium Rate Service",
-        "code": "+979"
-    },
-    {
-        "countryService": "International Shared Cost Service ",
-        "code": "+808"
-    },
-    {
-        "countryService": "Iran",
-        "code": "+98"
-    },
-    {
-        "countryService": "Iraq",
-        "code": "+964"
-    },
-    {
-        "countryService": "Ireland",
-        "code": "+353"
-    },
-    {
-        "countryService": "Iridium ",
-        "code": "+881 "
-    },
-    {
-        "countryService": "Isle of Man",
-        "code": "+44 "
-    },
-    {
-        "countryService": "Israel",
-        "code": "+972"
-    },
-    {
-        "countryService": "Italy",
-        "code": "+39"
-    },
-    {
-        "countryService": "Ivory Coast ",
-        "code": "+225"
-    },
-    {
-        "countryService": "Jamaica",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Jan Mayen",
-        "code": "+47 "
-    },
-    {
-        "countryService": "Japan",
-        "code": "+81"
-    },
-    {
-        "countryService": "Jersey",
-        "code": "+44 "
-    },
-    {
-        "countryService": "Jordan",
-        "code": "+962"
-    },
-    {
-        "countryService": "Kazakhstan",
-        "code": "+7 997"
-    },
-    {
-        "countryService": "Kenya",
-        "code": "+254"
-    },
-    {
-        "countryService": "Kiribati",
-        "code": "+686"
-    },
-    {
-        "countryService": "Korea",
-        "code": "+82"
-    },
-    {
-        "countryService": "Kosovo",
-        "code": "+383"
-    },
-    {
-        "countryService": "Kuwait",
-        "code": "+965"
-    },
-    {
-        "countryService": "Kyrgyzstan",
-        "code": "+996"
-    },
-    {
-        "countryService": "Laos",
-        "code": "+856"
-    },
-    {
-        "countryService": "Latvia",
-        "code": "+371"
-    },
-    {
-        "countryService": "Lebanon",
-        "code": "+961"
-    },
-    {
-        "countryService": "Lesotho",
-        "code": "+266"
-    },
-    {
-        "countryService": "Liberia",
-        "code": "+231"
-    },
-    {
-        "countryService": "Libya",
-        "code": "+218"
-    },
-    {
-        "countryService": "Liechtenstein",
-        "code": "+423"
-    },
-    {
-        "countryService": "Lithuania",
-        "code": "+370"
-    },
-    {
-        "countryService": "Luxembourg",
-        "code": "+352"
-    },
-    {
-        "countryService": "Macau",
-        "code": "+853"
-    },
-    {
-        "countryService": "Madagascar",
-        "code": "+261"
-    },
-    {
-        "countryService": "Malawi",
-        "code": "+265"
-    },
-    {
-        "countryService": "Malaysia",
-        "code": "+60"
-    },
-    {
-        "countryService": "Maldives",
-        "code": "+960"
-    },
-    {
-        "countryService": "Mali",
-        "code": "+223"
-    },
-    {
-        "countryService": "Malta",
-        "code": "+356"
-    },
-    {
-        "countryService": "Marshall Islands",
-        "code": "+692"
-    },
-    {
-        "countryService": "Martinique",
-        "code": "+596"
-    },
-    {
-        "countryService": "Mauritania",
-        "code": "+222"
-    },
-    {
-        "countryService": "Mauritius",
-        "code": "+230"
-    },
-    {
-        "countryService": "Mayotte",
-        "code": "+262 "
-    },
-    {
-        "countryService": "Mexico",
-        "code": "+52"
-    },
-    {
-        "countryService": "Micronesia",
-        "code": "+691"
-    },
-    {
-        "countryService": "Moldova",
-        "code": "+373"
-    },
-    {
-        "countryService": "Monaco",
-        "code": "+377"
-    },
-    {
-        "countryService": "Mongolia",
-        "code": "+976"
-    },
-    {
-        "countryService": "Montenegro",
-        "code": "+382"
-    },
-    {
-        "countryService": "Montserrat",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Morocco",
-        "code": "+212"
-    },
-    {
-        "countryService": "Mozambique",
-        "code": "+258"
-    },
-    {
-        "countryService": "Myanmar",
-        "code": "+95"
-    },
-    {
-        "countryService": "Namibia",
-        "code": "+264"
-    },
-    {
-        "countryService": "Nauru",
-        "code": "+674"
-    },
-    {
-        "countryService": "Nepal",
-        "code": "+977"
-    },
-    {
-        "countryService": "Netherlands",
-        "code": "+31"
-    },
-    {
-        "countryService": "Nevis",
-        "code": "+1 "
-    },
-    {
-        "countryService": "New Caledonia",
-        "code": "+687"
-    },
-    {
-        "countryService": "New Zealand",
-        "code": "+64"
-    },
-    {
-        "countryService": "Nicaragua",
-        "code": "+505"
-    },
-    {
-        "countryService": "Niger",
-        "code": "+227"
-    },
-    {
-        "countryService": "Nigeria",
-        "code": "+234"
-    },
-    {
-        "countryService": "Niue",
-        "code": "+683"
-    },
-    {
-        "countryService": "Norfolk Island",
-        "code": "+672 "
-    },
-    {
-        "countryService": "North Macedonia",
-        "code": "+389"
-    },
-    {
-        "countryService": "Northern Cyprus",
-        "code": "+90 "
-    },
-    {
-        "countryService": "Northern Ireland",
-        "code": "+44 "
-    },
-    {
-        "countryService": "Northern Mariana Islands",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Norway",
-        "code": "+47"
-    },
-    {
-        "countryService": "Oman",
-        "code": "+968"
-    },
-    {
-        "countryService": "Pakistan",
-        "code": "+92"
-    },
-    {
-        "countryService": "Palau",
-        "code": "+680"
-    },
-    {
-        "countryService": "Palestine",
-        "code": "+970"
-    },
-    {
-        "countryService": "Panama",
-        "code": "+507"
-    },
-    {
-        "countryService": "Papua New Guinea",
-        "code": "+675"
-    },
-    {
-        "countryService": "Paraguay",
-        "code": "+595"
-    },
-    {
-        "countryService": "Peru",
-        "code": "+51"
-    },
-    {
-        "countryService": "Philippines",
-        "code": "+63"
-    },
-    {
-        "countryService": "Pitcairn Islands",
-        "code": "+64"
-    },
-    {
-        "countryService": "Poland",
-        "code": "+48"
-    },
-    {
-        "countryService": "Portugal",
-        "code": "+351"
-    },
-    {
-        "countryService": "Puerto Rico",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Qatar",
-        "code": "+974"
-    },
-    {
-        "countryService": "Romania",
-        "code": "+40"
-    },
-    {
-        "countryService": "Russia",
-        "code": "+7"
-    },
-    {
-        "countryService": "Rwanda",
-        "code": "+250"
-    },
-    {
-        "countryService": "Réunion",
-        "code": "+262"
-    },
-    {
-        "countryService": "Saba",
-        "code": "+599 "
-    },
-    {
-        "countryService": "Saint Barthélemy",
-        "code": "+590"
-    },
-    {
-        "countryService": "Saint Helena",
-        "code": "+290"
-    },
-    {
-        "countryService": "Saint Kitts and Nevis",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Saint Lucia",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Saint Martin ",
-        "code": "+590"
-    },
-    {
-        "countryService": "Saint Pierre and Miquelon",
-        "code": "+508"
-    },
-    {
-        "countryService": "Saint Vincent and the Grenadines",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Samoa",
-        "code": "+685"
-    },
-    {
-        "countryService": "San Marino",
-        "code": "+378"
-    },
-    {
-        "countryService": "Saudi Arabia",
-        "code": "+966"
-    },
-    {
-        "countryService": "Senegal",
-        "code": "+221"
-    },
-    {
-        "countryService": "Serbia",
-        "code": "+381"
-    },
-    {
-        "countryService": "Seychelles",
-        "code": "+248"
-    },
-    {
-        "countryService": "Sierra Leone",
-        "code": "+232"
-    },
-    {
-        "countryService": "Singapore",
-        "code": "+65"
-    },
-    {
-        "countryService": "Sint Eustatius",
-        "code": "+599 "
-    },
-    {
-        "countryService": "Sint Maarten ",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Slovakia",
-        "code": "+421"
-    },
-    {
-        "countryService": "Slovenia",
-        "code": "+386"
-    },
-    {
-        "countryService": "Solomon Islands",
-        "code": "+677"
-    },
-    {
-        "countryService": "Somalia",
-        "code": "+252"
-    },
-    {
-        "countryService": "South Africa",
-        "code": "+27"
-    },
-    {
-        "countryService": "South Georgia and the South Sandwich Islands",
-        "code": "+500"
-    },
-    {
-        "countryService": "South Ossetia",
-        "code": "+995 "
-    },
-    {
-        "countryService": "South Sudan",
-        "code": "+211"
-    },
-    {
-        "countryService": "Spain",
-        "code": "+34"
-    },
-    {
-        "countryService": "Sri Lanka",
-        "code": "+94"
-    },
-    {
-        "countryService": "Sudan",
-        "code": "+249"
-    },
-    {
-        "countryService": "Suriname",
-        "code": "+597"
-    },
-    {
-        "countryService": "Svalbard",
-        "code": "+47 "
-    },
-    {
-        "countryService": "Sweden",
-        "code": "+46"
-    },
-    {
-        "countryService": "Switzerland",
-        "code": "+41"
-    },
-    {
-        "countryService": "Syria",
-        "code": "+963"
-    },
-    {
-        "countryService": "São Tomé and Príncipe",
-        "code": "+239"
-    },
-    {
-        "countryService": "Taiwan",
-        "code": "+886"
-    },
-    {
-        "countryService": "Tajikistan",
-        "code": "+992"
-    },
-    {
-        "countryService": "Tanzania",
-        "code": "+255"
-    },
-    {
-        "countryService": "Thailand",
-        "code": "+66"
-    },
-    {
-        "countryService": "Thuraya ",
-        "code": "+882 "
-    },
-    {
-        "countryService": "Togo",
-        "code": "+228"
-    },
-    {
-        "countryService": "Tokelau",
-        "code": "+690"
-    },
-    {
-        "countryService": "Tonga",
-        "code": "+676"
-    },
-    {
-        "countryService": "Transnistria",
-        "code": "+373 "
-    },
-    {
-        "countryService": "Trinidad and Tobago",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Tristan da Cunha",
-        "code": "+290 "
-    },
-    {
-        "countryService": "Tunisia",
-        "code": "+216"
-    },
-    {
-        "countryService": "Turkey",
-        "code": "+90"
-    },
-    {
-        "countryService": "Turkmenistan",
-        "code": "+993"
-    },
-    {
-        "countryService": "Turks and Caicos Islands",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Tuvalu",
-        "code": "+688"
-    },
-    {
-        "countryService": "Uganda",
-        "code": "+256"
-    },
-    {
-        "countryService": "Ukraine",
-        "code": "+380"
-    },
-    {
-        "countryService": "United Arab Emirates",
-        "code": "+971"
-    },
-    {
-        "countryService": "United Kingdom",
-        "code": "+44"
-    },
-    {
-        "countryService": "United States",
-        "code": "+1"
-    },
-    {
-        "countryService": "Uruguay",
-        "code": "+598"
-    },
-    {
-        "countryService": "US Virgin Islands",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Uzbekistan",
-        "code": "+998"
-    },
-    {
-        "countryService": "Vanuatu",
-        "code": "+678"
-    },
-    {
-        "countryService": "Vatican City State ",
-        "code": "+39 379"
-    },
-    {
-        "countryService": "Venezuela",
-        "code": "+58"
-    },
-    {
-        "countryService": "Vietnam",
-        "code": "+84"
-    },
-    {
-        "countryService": "Wake Island",
-        "code": "+1 "
-    },
-    {
-        "countryService": "Wallis and Futuna",
-        "code": "+681"
-    },
-    {
-        "countryService": "Yemen",
-        "code": "+967"
-    },
-    {
-        "countryService": "Zambia",
-        "code": "+260"
-    },
-    {
-        "countryService": "Zanzibar",
-        "code": "+255 "
-    },
-    {
-        "countryService": "Zimbabwe",
-        "code": "+263"
-    },
-    {
-        "countryService": "Åland",
-        "code": "+358 "
-    }
+
+  export  const callingCodes = [
+  {
+    "countryOrService": "Afghanistan",
+    "code": "+93"
+  },
+  {
+    "countryOrService": "Albania",
+    "code": "+355"
+  },
+  {
+    "countryOrService": "Algeria",
+    "code": "+213"
+  },
+  {
+    "countryOrService": "American Samoa",
+    "code": "+1-684"
+  },
+  {
+    "countryOrService": "Andorra",
+    "code": "+376"
+  },
+  {
+    "countryOrService": "Angola",
+    "code": "+244"
+  },
+  {
+    "countryOrService": "Anguilla",
+    "code": "+1-264"
+  },
+  {
+    "countryOrService": "Antigua and Barbuda",
+    "code": "+1-268"
+  },
+  {
+    "countryOrService": "Argentina",
+    "code": "+54"
+  },
+  {
+    "countryOrService": "Armenia",
+    "code": "+374"
+  },
+  {
+    "countryOrService": "Artsakh",
+    "code": "+374-47"
+  },
+  {
+    "countryOrService": "Aruba",
+    "code": "+297"
+  },
+  {
+    "countryOrService": "Ascension",
+    "code": "+247"
+  },
+  {
+    "countryOrService": "Australia",
+    "code": "+61"
+  },
+  {
+    "countryOrService": "Austria",
+    "code": "+43"
+  },
+  {
+    "countryOrService": "Azerbaijan",
+    "code": "+994"
+  },
+  {
+    "countryOrService": "Bahamas",
+    "code": "+1-242"
+  },
+  {
+    "countryOrService": "Bahrain",
+    "code": "+973"
+  },
+  {
+    "countryOrService": "Bangladesh",
+    "code": "+880"
+  },
+  {
+    "countryOrService": "Barbados",
+    "code": "+1-246"
+  },
+  {
+    "countryOrService": "Belarus",
+    "code": "+375"
+  },
+  {
+    "countryOrService": "Belgium",
+    "code": "+32"
+  },
+  {
+    "countryOrService": "Belize",
+    "code": "+501"
+  },
+  {
+    "countryOrService": "Benin",
+    "code": "+229"
+  },
+  {
+    "countryOrService": "Bermuda",
+    "code": "+1-441"
+  },
+  {
+    "countryOrService": "Bhutan",
+    "code": "+975"
+  },
+  {
+    "countryOrService": "Bolivia",
+    "code": "+591"
+  },
+  {
+    "countryOrService": "Bonaire",
+    "code": "+599-7"
+  },
+  {
+    "countryOrService": "Bosnia and Herzegovina",
+    "code": "+387"
+  },
+  {
+    "countryOrService": "Botswana",
+    "code": "+267"
+  },
+  {
+    "countryOrService": "Brazil",
+    "code": "+55"
+  },
+  {
+    "countryOrService": "British Indian Ocean Territory",
+    "code": "+246"
+  },
+  {
+    "countryOrService": "British Virgin Islands",
+    "code": "+1-284"
+  },
+  {
+    "countryOrService": "Brunei Darussalam",
+    "code": "+673"
+  },
+  {
+    "countryOrService": "Bulgaria",
+    "code": "+359"
+  },
+  {
+    "countryOrService": "Burkina Faso",
+    "code": "+226"
+  },
+  {
+    "countryOrService": "Burundi",
+    "code": "+257"
+  },
+  {
+    "countryOrService": "Cambodia",
+    "code": "+855"
+  },
+  {
+    "countryOrService": "Cameroon",
+    "code": "+237"
+  },
+  {
+    "countryOrService": "Canada",
+    "code": "+1"
+  },
+  {
+    "countryOrService": "Cape Verde",
+    "code": "+238"
+  },
+  {
+    "countryOrService": "Caribbean Netherlands",
+    "code": "+599-3"
+  },
+  {
+    "countryOrService": "Cayman Islands",
+    "code": "+1-345"
+  },
+  {
+    "countryOrService": "Central African Republic",
+    "code": "+236"
+  },
+  {
+    "countryOrService": "Chad",
+    "code": "+235"
+  },
+  {
+    "countryOrService": "Chile",
+    "code": "+56"
+  },
+  {
+    "countryOrService": "China",
+    "code": "+86"
+  },
+  {
+    "countryOrService": "Christmas Island",
+    "code": "+61-89164"
+  },
+  {
+    "countryOrService": "Cocos  Islands",
+    "code": "+61-89162"
+  },
+  {
+    "countryOrService": "Colombia",
+    "code": "+57"
+  },
+  {
+    "countryOrService": "Comoros",
+    "code": "+269"
+  },
+  {
+    "countryOrService": "Congo",
+    "code": "+242"
+  },
+  {
+    "countryOrService": "Cook Islands",
+    "code": "+682"
+  },
+  {
+    "countryOrService": "Costa Rica",
+    "code": "+506"
+  },
+  {
+    "countryOrService": "Croatia",
+    "code": "+385"
+  },
+  {
+    "countryOrService": "Cuba",
+    "code": "+53"
+  },
+  {
+    "countryOrService": "Curaçao",
+    "code": "+599-9"
+  },
+  {
+    "countryOrService": "Cyprus",
+    "code": "+357"
+  },
+  {
+    "countryOrService": "Czech Republic",
+    "code": "+420"
+  },
+  {
+    "countryOrService": "Democratic Republic of the Congo",
+    "code": "+243"
+  },
+  {
+    "countryOrService": "Denmark",
+    "code": "+45"
+  },
+  {
+    "countryOrService": "Djibouti",
+    "code": "+253"
+  },
+  {
+    "countryOrService": "Dominica",
+    "code": "+1-767"
+  },
+  {
+    "countryOrService": "Dominican Republic",
+    "code": "+1-809"
+  },
+  {
+    "countryOrService": "EMSAT",
+    "code": "+882-13"
+  },
+  {
+    "countryOrService": "East Timor",
+    "code": "+670"
+  },
+  {
+    "countryOrService": "Easter Island",
+    "code": "+56"
+  },
+  {
+    "countryOrService": "Ecuador",
+    "code": "+593"
+  },
+  {
+    "countryOrService": "Egypt",
+    "code": "+20"
+  },
+  {
+    "countryOrService": "El Salvador",
+    "code": "+503"
+  },
+  {
+    "countryOrService": "Ellipso",
+    "code": "+881-2"
+  },
+  {
+    "countryOrService": "Equatorial Guinea",
+    "code": "+240"
+  },
+  {
+    "countryOrService": "Eritrea",
+    "code": "+291"
+  },
+  {
+    "countryOrService": "Estonia",
+    "code": "+372"
+  },
+  {
+    "countryOrService": "Eswatini",
+    "code": "+268"
+  },
+  {
+    "countryOrService": "Ethiopia",
+    "code": "+251"
+  },
+  {
+    "countryOrService": "Falkland Islands",
+    "code": "+500"
+  },
+  {
+    "countryOrService": "Faroe Islands",
+    "code": "+298"
+  },
+  {
+    "countryOrService": "Federated States of Micronesia",
+    "code": "+691"
+  },
+  {
+    "countryOrService": "Fiji",
+    "code": "+679"
+  },
+  {
+    "countryOrService": "Finland",
+    "code": "+358"
+  },
+  {
+    "countryOrService": "France",
+    "code": "+33"
+  },
+  {
+    "countryOrService": "French Antilles",
+    "code": "+596"
+  },
+  {
+    "countryOrService": "French Guiana",
+    "code": "+594"
+  },
+  {
+    "countryOrService": "French Polynesia",
+    "code": "+689"
+  },
+  {
+    "countryOrService": "Gabon",
+    "code": "+241"
+  },
+  {
+    "countryOrService": "Gambia",
+    "code": "+220"
+  },
+  {
+    "countryOrService": "Georgia",
+    "code": "+995"
+  },
+  {
+    "countryOrService": "Germany",
+    "code": "+49"
+  },
+  {
+    "countryOrService": "Ghana",
+    "code": "+233"
+  },
+  {
+    "countryOrService": "Gibraltar",
+    "code": "+350"
+  },
+  {
+    "countryOrService": "Global Mobile Satellite System",
+    "code": "+881"
+  },
+  {
+    "countryOrService": "Globalstar",
+    "code": "+881-8"
+  },
+  {
+    "countryOrService": "Greece",
+    "code": "+30"
+  },
+  {
+    "countryOrService": "Greenland",
+    "code": "+299"
+  },
+  {
+    "countryOrService": "Grenada",
+    "code": "+1-473"
+  },
+  {
+    "countryOrService": "Guadeloupe",
+    "code": "+590"
+  },
+  {
+    "countryOrService": "Guam",
+    "code": "+1-671"
+  },
+  {
+    "countryOrService": "Guatemala",
+    "code": "+502"
+  },
+  {
+    "countryOrService": "Guernsey",
+    "code": "+44-1481"
+  },
+  {
+    "countryOrService": "Guinea",
+    "code": "+224"
+  },
+  {
+    "countryOrService": "Guinea-Bissau",
+    "code": "+245"
+  },
+  {
+    "countryOrService": "Guyana",
+    "code": "+592"
+  },
+  {
+    "countryOrService": "Haiti",
+    "code": "+509"
+  },
+  {
+    "countryOrService": "Honduras",
+    "code": "+504"
+  },
+  {
+    "countryOrService": "Hong Kong",
+    "code": "+852"
+  },
+  {
+    "countryOrService": "Hungary",
+    "code": "+36"
+  },
+  {
+    "countryOrService": "ICO Global",
+    "code": "+881-0"
+  },
+  {
+    "countryOrService": "Iceland",
+    "code": "+354"
+  },
+  {
+    "countryOrService": "India",
+    "code": "+91"
+  },
+  {
+    "countryOrService": "Indonesia",
+    "code": "+62"
+  },
+  {
+    "countryOrService": "Inmarsat SNAC",
+    "code": "+870"
+  },
+  {
+    "countryOrService": "International Freephone Service",
+    "code": "+800"
+  },
+  {
+    "countryOrService": "International Networks",
+    "code": "+882883"
+  },
+  {
+    "countryOrService": "International Premium Rate Service",
+    "code": "+979"
+  },
+  {
+    "countryOrService": "International Shared Cost Service",
+    "code": "+808"
+  },
+  {
+    "countryOrService": "Iran",
+    "code": "+98"
+  },
+  {
+    "countryOrService": "Iraq",
+    "code": "+964"
+  },
+  {
+    "countryOrService": "Ireland",
+    "code": "+353"
+  },
+  {
+    "countryOrService": "Iridium",
+    "code": "+881-6"
+  },
+  {
+    "countryOrService": "Isle of Man",
+    "code": "+44-1624"
+  },
+  {
+    "countryOrService": "Israel",
+    "code": "+972"
+  },
+  {
+    "countryOrService": "Italy",
+    "code": "+39"
+  },
+  {
+    "countryOrService": "Ivory Coast",
+    "code": "+225"
+  },
+  {
+    "countryOrService": "Jamaica",
+    "code": "+1-658"
+  },
+  {
+    "countryOrService": "Jan Mayen",
+    "code": "+47-79"
+  },
+  {
+    "countryOrService": "Japan",
+    "code": "+81"
+  },
+  {
+    "countryOrService": "Jersey",
+    "code": "+44-1534"
+  },
+  {
+    "countryOrService": "Jordan",
+    "code": "+962"
+  },
+  {
+    "countryOrService": "Kazakhstan",
+    "code": "+7 997-6"
+  },
+  {
+    "countryOrService": "Kenya",
+    "code": "+254"
+  },
+  {
+    "countryOrService": "Kiribati",
+    "code": "+686"
+  },
+  {
+    "countryOrService": "Kosovo",
+    "code": "+383"
+  },
+  {
+    "countryOrService": "Kuwait",
+    "code": "+965"
+  },
+  {
+    "countryOrService": "Kyrgyzstan",
+    "code": "+996"
+  },
+  {
+    "countryOrService": "Laos",
+    "code": "+856"
+  },
+  {
+    "countryOrService": "Latvia",
+    "code": "+371"
+  },
+  {
+    "countryOrService": "Lebanon",
+    "code": "+961"
+  },
+  {
+    "countryOrService": "Lesotho",
+    "code": "+266"
+  },
+  {
+    "countryOrService": "Liberia",
+    "code": "+231"
+  },
+  {
+    "countryOrService": "Libya",
+    "code": "+218"
+  },
+  {
+    "countryOrService": "Liechtenstein",
+    "code": "+423"
+  },
+  {
+    "countryOrService": "Lithuania",
+    "code": "+370"
+  },
+  {
+    "countryOrService": "Luxembourg",
+    "code": "+352"
+  },
+  {
+    "countryOrService": "Macau",
+    "code": "+853"
+  },
+  {
+    "countryOrService": "Madagascar",
+    "code": "+261"
+  },
+  {
+    "countryOrService": "Malawi",
+    "code": "+265"
+  },
+  {
+    "countryOrService": "Malaysia",
+    "code": "+60"
+  },
+  {
+    "countryOrService": "Maldives",
+    "code": "+960"
+  },
+  {
+    "countryOrService": "Mali",
+    "code": "+223"
+  },
+  {
+    "countryOrService": "Malta",
+    "code": "+356"
+  },
+  {
+    "countryOrService": "Marshall Islands",
+    "code": "+692"
+  },
+  {
+    "countryOrService": "Martinique",
+    "code": "+596"
+  },
+  {
+    "countryOrService": "Mauritania",
+    "code": "+222"
+  },
+  {
+    "countryOrService": "Mauritius",
+    "code": "+230"
+  },
+  {
+    "countryOrService": "Mayotte",
+    "code": "+262-269"
+  },
+  {
+    "countryOrService": "Mexico",
+    "code": "+52"
+  },
+  {
+    "countryOrService": "Moldova",
+    "code": "+373"
+  },
+  {
+    "countryOrService": "Monaco",
+    "code": "+377"
+  },
+  {
+    "countryOrService": "Mongolia",
+    "code": "+976"
+  },
+  {
+    "countryOrService": "Montenegro",
+    "code": "+382"
+  },
+  {
+    "countryOrService": "Montserrat",
+    "code": "+1-664"
+  },
+  {
+    "countryOrService": "Morocco",
+    "code": "+212"
+  },
+  {
+    "countryOrService": "Mozambique",
+    "code": "+258"
+  },
+  {
+    "countryOrService": "Myanmar",
+    "code": "+95"
+  },
+  {
+    "countryOrService": "Namibia",
+    "code": "+264"
+  },
+  {
+    "countryOrService": "Nauru",
+    "code": "+674"
+  },
+  {
+    "countryOrService": "Nepal",
+    "code": "+977"
+  },
+  {
+    "countryOrService": "Netherlands",
+    "code": "+31"
+  },
+  {
+    "countryOrService": "Nevis",
+    "code": "+1-869"
+  },
+  {
+    "countryOrService": "New Caledonia",
+    "code": "+687"
+  },
+  {
+    "countryOrService": "New Zealand",
+    "code": "+64"
+  },
+  {
+    "countryOrService": "Nicaragua",
+    "code": "+505"
+  },
+  {
+    "countryOrService": "Niger",
+    "code": "+227"
+  },
+  {
+    "countryOrService": "Nigeria",
+    "code": "+234"
+  },
+  {
+    "countryOrService": "Niue",
+    "code": "+683"
+  },
+  {
+    "countryOrService": "Norfolk Island",
+    "code": "+672-3"
+  },
+  {
+    "countryOrService": "North Korea",
+    "code": "+850"
+  },
+  {
+    "countryOrService": "North Macedonia",
+    "code": "+389"
+  },
+  {
+    "countryOrService": "Northern Cyprus",
+    "code": "+90-392"
+  },
+  {
+    "countryOrService": "Northern Ireland",
+    "code": "+44-28"
+  },
+  {
+    "countryOrService": "Northern Mariana Islands",
+    "code": "+1-670"
+  },
+  {
+    "countryOrService": "Norway",
+    "code": "+47"
+  },
+  {
+    "countryOrService": "Oman",
+    "code": "+968"
+  },
+  {
+    "countryOrService": "Pakistan",
+    "code": "+92"
+  },
+  {
+    "countryOrService": "Palau",
+    "code": "+680"
+  },
+  {
+    "countryOrService": "Palestine",
+    "code": "+970"
+  },
+  {
+    "countryOrService": "Panama",
+    "code": "+507"
+  },
+  {
+    "countryOrService": "Papua New Guinea",
+    "code": "+675"
+  },
+  {
+    "countryOrService": "Paraguay",
+    "code": "+595"
+  },
+  {
+    "countryOrService": "Peru",
+    "code": "+51"
+  },
+  {
+    "countryOrService": "Philippines",
+    "code": "+63"
+  },
+  {
+    "countryOrService": "Pitcairn Islands",
+    "code": "+64"
+  },
+  {
+    "countryOrService": "Poland",
+    "code": "+48"
+  },
+  {
+    "countryOrService": "Portugal",
+    "code": "+351"
+  },
+  {
+    "countryOrService": "Puerto Rico",
+    "code": "+1-787"
+  },
+  {
+    "countryOrService": "Qatar",
+    "code": "+974"
+  },
+  {
+    "countryOrService": "Romania",
+    "code": "+40"
+  },
+  {
+    "countryOrService": "Russia",
+    "code": "+7"
+  },
+  {
+    "countryOrService": "Rwanda",
+    "code": "+250"
+  },
+  {
+    "countryOrService": "Réunion",
+    "code": "+262"
+  },
+  {
+    "countryOrService": "Saba",
+    "code": "+599-4"
+  },
+  {
+    "countryOrService": "Saint Barthélemy",
+    "code": "+590"
+  },
+  {
+    "countryOrService": "Saint Helena",
+    "code": "+290"
+  },
+  {
+    "countryOrService": "Saint Kitts and Nevis",
+    "code": "+1-869"
+  },
+  {
+    "countryOrService": "Saint Lucia",
+    "code": "+1-758"
+  },
+  {
+    "countryOrService": "Saint Martin",
+    "code": "+590"
+  },
+  {
+    "countryOrService": "Saint Pierre and Miquelon",
+    "code": "+508"
+  },
+  {
+    "countryOrService": "Saint Vincent and the Grenadines",
+    "code": "+1-784"
+  },
+  {
+    "countryOrService": "Samoa",
+    "code": "+685"
+  },
+  {
+    "countryOrService": "San Marino",
+    "code": "+378"
+  },
+  {
+    "countryOrService": "Saudi Arabia",
+    "code": "+966"
+  },
+  {
+    "countryOrService": "Senegal",
+    "code": "+221"
+  },
+  {
+    "countryOrService": "Serbia",
+    "code": "+381"
+  },
+  {
+    "countryOrService": "Seychelles",
+    "code": "+248"
+  },
+  {
+    "countryOrService": "Sierra Leone",
+    "code": "+232"
+  },
+  {
+    "countryOrService": "Singapore",
+    "code": "+65"
+  },
+  {
+    "countryOrService": "Sint Eustatius",
+    "code": "+599-3"
+  },
+  {
+    "countryOrService": "Sint Maarten",
+    "code": "+1-721"
+  },
+  {
+    "countryOrService": "Slovakia",
+    "code": "+421"
+  },
+  {
+    "countryOrService": "Slovenia",
+    "code": "+386"
+  },
+  {
+    "countryOrService": "Solomon Islands",
+    "code": "+677"
+  },
+  {
+    "countryOrService": "Somalia",
+    "code": "+252"
+  },
+  {
+    "countryOrService": "South Africa",
+    "code": "+27"
+  },
+  {
+    "countryOrService": "South Georgia and the South Sandwich Islands",
+    "code": "+500"
+  },
+  {
+    "countryOrService": "South Korea",
+    "code": "+82"
+  },
+  {
+    "countryOrService": "South Ossetia",
+    "code": "+995-34"
+  },
+  {
+    "countryOrService": "South Sudan",
+    "code": "+211"
+  },
+  {
+    "countryOrService": "Spain",
+    "code": "+34"
+  },
+  {
+    "countryOrService": "Sri Lanka",
+    "code": "+94"
+  },
+  {
+    "countryOrService": "Sudan",
+    "code": "+249"
+  },
+  {
+    "countryOrService": "Suriname",
+    "code": "+597"
+  },
+  {
+    "countryOrService": "Svalbard",
+    "code": "+47-79"
+  },
+  {
+    "countryOrService": "Sweden",
+    "code": "+46"
+  },
+  {
+    "countryOrService": "Switzerland",
+    "code": "+41"
+  },
+  {
+    "countryOrService": "Syria",
+    "code": "+963"
+  },
+  {
+    "countryOrService": "São Tomé and Príncipe",
+    "code": "+239"
+  },
+  {
+    "countryOrService": "Taiwan",
+    "code": "+886"
+  },
+  {
+    "countryOrService": "Tajikistan",
+    "code": "+992"
+  },
+  {
+    "countryOrService": "Tanzania",
+    "code": "+255"
+  },
+  {
+    "countryOrService": "Thailand",
+    "code": "+66"
+  },
+  {
+    "countryOrService": "Thuraya",
+    "code": "+882-16"
+  },
+  {
+    "countryOrService": "Togo",
+    "code": "+228"
+  },
+  {
+    "countryOrService": "Tokelau",
+    "code": "+690"
+  },
+  {
+    "countryOrService": "Tonga",
+    "code": "+676"
+  },
+  {
+    "countryOrService": "Transnistria",
+    "code": "+373-2"
+  },
+  {
+    "countryOrService": "Trinidad and Tobago",
+    "code": "+1-868"
+  },
+  {
+    "countryOrService": "Tristan da Cunha",
+    "code": "+290-8"
+  },
+  {
+    "countryOrService": "Tunisia",
+    "code": "+216"
+  },
+  {
+    "countryOrService": "Turkey",
+    "code": "+90"
+  },
+  {
+    "countryOrService": "Turkmenistan",
+    "code": "+993"
+  },
+  {
+    "countryOrService": "Turks and Caicos Islands",
+    "code": "+1-649"
+  },
+  {
+    "countryOrService": "Tuvalu",
+    "code": "+688"
+  },
+  {
+    "countryOrService": "USA Wake Island",
+    "code": "+1-808"
+  },
+  {
+    "countryOrService": "Uganda",
+    "code": "+256"
+  },
+  {
+    "countryOrService": "Ukraine",
+    "code": "+380"
+  },
+  {
+    "countryOrService": "United Arab Emirates",
+    "code": "+971"
+  },
+  {
+    "countryOrService": "United Kingdom",
+    "code": "+44"
+  },
+  {
+    "countryOrService": "United States",
+    "code": "+1"
+  },
+  {
+    "countryOrService": "Uruguay",
+    "code": "+598"
+  },
+  {
+    "countryOrService": "Uzbekistan",
+    "code": "+998"
+  },
+  {
+    "countryOrService": "Vanuatu",
+    "code": "+678"
+  },
+  {
+    "countryOrService": "Vatican City",
+    "code": "+39-06698379"
+  },
+  {
+    "countryOrService": "Venezuela",
+    "code": "+58"
+  },
+  {
+    "countryOrService": "Vietnam",
+    "code": "+84"
+  },
+  {
+    "countryOrService": "Virgin Islands",
+    "code": "+1-340"
+  },
+  {
+    "countryOrService": "Wallis and Futuna",
+    "code": "+681"
+  },
+  {
+    "countryOrService": "Yemen",
+    "code": "+967"
+  },
+  {
+    "countryOrService": "Zambia",
+    "code": "+260"
+  },
+  {
+    "countryOrService": "Zanzibar",
+    "code": "+255-24"
+  },
+  {
+    "countryOrService": "Zimbabwe",
+    "code": "+263"
+  },
+  {
+    "countryOrService": "Åland",
+    "code": "+358-18"
+  }
 ] as const
+  

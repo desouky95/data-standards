@@ -1,277 +1,313 @@
-import { getData } from "@desoukysvyc/data-utils";
+import { createTypescript, getData } from "@desoukysvyc/data-utils";
 import axios from "axios";
 import { load } from "cheerio";
+import { booleanify, clean, urls } from "../../utils/urls";
+import _ from "lodash";
+const { mergeWith, isArray, uniq } = _
+const statusMap = {
+  "user-assigned": "user-assigned",
+  "exceptionally reserved": "exceptionally-reserved",
+  "transitionally reserved": "transitionally-reserved",
+  "indeterminately reserved": "indeterminately-reserved",
+  deleted: "deleted",
+  unassigned: "unassigned",
+  assigned: "assigned",
+};
+const states = [
+  "user-assigned",
+  "exceptionally reserved",
+  "transitionally reserved",
+  "indeterminately reserved",
+  "deleted",
+  "unassigned",
+];
 
-getData({
-  filePath: "src/data/csv/countries.csv",
-  url: "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes",
-  async cb($) {
-    const countries: Map<string, Array<string>> = new Map();
-    // const countries: string[][] = [];
-    const currenciesResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/ISO_4217"
-    );
-    const circulatingCurrenciesResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/List_of_circulating_currencies"
-    );
-    const languagesResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory"
-    );
+type Iso3166 = { code: string; state: keyof typeof statusMap; note?: string };
+type CollectedCountry = {
+  name: string;
+  alpha2: "AF";
+  alpha3: string;
+  numeric: string;
+  independent: true;
+  status: keyof typeof statusMap;
+  altNames: Array<string>;
+  officialName: string;
+  ccTLD: Array<string>;
+  sovereignty: string;
+};
+export default async function collect() {
+  let assigned: any[] = [];
+  let iso31661: any[] = [];
+  let reserved: any[] = [];
 
-    const languagesLookupResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
-    );
+  const handleIso3166 = async () => {
+    const response = await axios.get(urls.iso31661Overview);
+    const $ = load(response.data);
 
-    const capitalsResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_and_their_capitals_in_native_languages"
-    );
-
-    const callingCodesResponse = await axios.get(
-      "https://en.wikipedia.org/wiki/List_of_country_calling_codes#Alphabetical_order"
-    );
-
-    const $currency = load(currenciesResponse.data);
-    const $circulatingCurrency = load(circulatingCurrenciesResponse.data);
-    const $language = load(languagesResponse.data);
-    const $languageLookup = load(languagesLookupResponse.data);
-    const $capitals = load(capitalsResponse.data);
-    const $callingCodes = load(callingCodesResponse.data);
-
-    $("table.wikitable tbody tr").map(function () {
-      // const name = $(this).find("td:first-child a").text().trim();
-      const isSingleRow = $(this).children("td").length;
-      if (isSingleRow === 1) {
-        return;
-      }
-      let multipleCountry =
-        $(this).find("td:first-child a[title!='']").length > 2;
-      let name = $(this)
-        .find("td:first-child a[title!='']:not(:has(img))")
-        .attr("title")
-        ?.trim();
-      if (!name) return;
-      const officialName = $(this)
-        .find("td:nth-child(2) a[title!='']")
-        .text()
-        .trim();
-      const alpha2 = $(this).find("td:nth-child(4) a span").text().trim();
-      const alpha3 = $(this).find("td:nth-child(5) a span").text().trim();
-      const numericCode = $(this).find("td:nth-child(6) a span").text().trim();
-      const internetTLD = $(this)
-        .find("td:last-child a[title!='']")
-        .map((_, el) => $(el).text().trim())
-        .toArray()
-        .join(",");
-
-      let secondaryName = $(this)
-        .find("td:first-child a[title!='']:not(:has(img))")
-        .text()
-        ?.trim()
-        .replace(/\(.*?\)|(,(.*))/gm, "")
-        .trim();
-
-      let currencies = $currency("table.wikitable:first tbody")
-        .find(
-          `tr:has(a[title="${name}"]),tr:has(a[title="${secondaryName}"]),tr:has(a:contains("${name}")),tr:has(a:contains("${secondaryName}")),tr:has(td:contains(${name})),tr:has(td:contains(${secondaryName}))`
-        )
-        .find("td:nth-child(1)")
-        .map(function () {
-          return $(this).text().trim();
-        })
-        .toArray()
-        .join(",");
-
-      if (currencies.length === 0) {
-        const currenciesTable = $circulatingCurrency("<tbody></tbody>");
-        const currencyRow = $circulatingCurrency(
-          "table.wikitable:first tbody"
-        ).find(
-          `tr:has(a[title="${name}"]),tr:has(a[title="${secondaryName}"]),tr:has(a:contains("${name}")),tr:has(a:contains("${secondaryName}"))`
-        );
-        const span = currencyRow.find("td:first-child").attr("rowspan");
-        let next;
-        if (span) {
-          next = currencyRow.nextUntil(
-            `tr:has(td:first-child[rowspan!=""]):has(td:first-child a[title!="${name}"][title!="${secondaryName}"])`
-          );
-        }
-        currenciesTable.append(currencyRow).append(next);
-        currencies = currenciesTable
-          .find("tr")
-          .map(function () {
-            if (
-              $circulatingCurrency(this).find("td:first-child").attr("rowspan")
-            ) {
-              return $circulatingCurrency(this)
-                .find("td:nth-child(4)")
-                .text()
-                .trim();
-            }
-            return $circulatingCurrency(this)
-              .find("td:nth-child(3)")
-              .text()
+    const table = $("table.wikitable")[1];
+    $(table)
+      .find("td")
+      .each(function () {
+        const code = clean($(this).text());
+        const status = clean($(this).attr("title") ?? "");
+        let state = "assigned";
+        const colon = states.indexOf(":");
+        const semicolon = colon === -1 ? -1 : status.indexOf(";", colon);
+        const note =
+          colon === -1
+            ? undefined
+            : status
+              .slice(colon + 1, semicolon === -1 ? status.length : semicolon)
+              .replace(/\([^)]*\)/g, "")
+              .replace(/\)/g, "")
               .trim();
-          })
-          .toArray()
-          .join(",");
-      }
-
-      const getLanguages = () => {
-        let languagesRow = $language("table.wikitable tbody")
-          .find(
-            `tr:has(td:nth-child(1):has(a:contains("${name}"))),tr:has(td:nth-child(1):has(a:contains("${secondaryName}")))
-          `
-          )
-          .first();
-        if (languagesRow.length === 0) {
-          const sovereignty = $(this).find("td:nth-child(3)").text().trim();
-          languagesRow = $language("table.wikitable tbody").find(
-            `tr:has(a:contains('${sovereignty}'))`
-          );
+        if (status === "Escape code") {
+          state = "unassigned";
         }
-        if (languagesRow.length === 0)
-          console.log({ [name ?? secondaryName]: languagesRow.length });
 
-        const regex = /\[.*?\]|\(.*?\)/gm;
-
-        const languagesCol = languagesRow.find("td:nth-child(2)");
-        if (languagesCol.has("ul").length > 0) {
-          return languagesCol
-            .find("ul li")
-            .map(function () {
-              return $language(this).text().trim().replace(regex, "");
-            })
-            .toArray()
-            .filter((_) => _ !== "");
+        for (let stateType of states) {
+          if (new RegExp("^" + stateType, "i").test(status)) {
+            state = statusMap[stateType as keyof typeof statusMap];
+            break;
+          }
         }
-        if (languagesCol.has("a").length > 0)
-          return languagesCol
-            .find("a[title!='De facto']")
-            .map(function () {
-              return $language(this).text().trim().replace(regex, "");
-            })
-            .toArray()
-            .filter((_) => _ !== "");
-        return [languagesCol.text().trim().replace(regex, "")].filter(
-          (_) => _ !== ""
-        );
-      };
 
-      const capitalSelector = (value) =>
-        `table.wikitable tbody tr:has(td:first-child:has(a[title="${value}"])) td:nth-child(2)`;
-      const capital = $capitals(
-        `${capitalSelector(name)},
-        ${capitalSelector(secondaryName)},
-        ${capitalSelector(officialName)}`
-      )
-        .text()
-        .trim()
-        .replace(/\(.*?\)|\[.*?\]/gm, "");
+        iso31661.push({ code, state, note });
+      });
 
-      const langs = getLanguages().map((lang) => {
-        const exist = $languageLookup(
-          `table.wikitable tbody tr:has(td:first-child a[title~="${lang.trim()}"])`
-        );
-        const mapped = exist
-          .map(function () {
-            return $languageLookup(this).find("td:nth-child(3)").text().trim();
-          })
-          .toArray()
-          .filter((_) => _ !== "");
-        return mapped[0];
-      }).join(',');
+    const reservedTable = $("h4:has(span#Transitional_reservations)")
+      .next()
+      .next("table.wikitable");
 
-      const callingCodesTable = $callingCodes("h2 span#Alphabetical_order")
-        .parent()
-        .next("table.wikitable");
+    const exceptionalTable = $("h4:has(span#Exceptional_reservations)")
+      .next()
+      .next("table.wikitable");
 
-      const callingCode = callingCodesTable
-        .find("tr ")
-        .filter((i, el) => {
-          const countryName = $callingCodes(el).find("td:first-child").text();
-          return (
-            countryName.includes(name ?? secondaryName) ||
-            countryName.includes(secondaryName) ||
-            countryName.includes(officialName)
-          );
+    const indeterminateTable = $("h4:has(span#Indeterminate_reservations)")
+      .next()
+      .next("table.wikitable");
+
+    const deletedTable = $("h2:has(span#Deleted_codes)")
+      .next()
+      .next("table.wikitable");
+
+    let rows = $(reservedTable).find("tbody tr");
+    const entries: any[] = [];
+    for (let index = 0; index < rows.length; index++) {
+      const row = rows[index];
+      const [alpha2, , , , , , notes] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
         })
-        .first()
-        .find("td:nth-child(2)")
-        .text()
-        .trim()
-        .replace(/\(.*?\)/gm, "");
+        .toArray();
 
-      if (!alpha3 || !name) return;
+      const name = clean($(row).find("td:nth-child(2) a:first-child").text());
+      if (!name) continue;
+      entries.push({
+        alpha2,
+        name,
+        notes,
+      });
+    }
 
-      countries.set(alpha3, [
-        multipleCountry ? `"${officialName}"` : name,
-        multipleCountry ? `"${officialName}"` : secondaryName,
-        `"${officialName}"`,
+    rows = exceptionalTable.find("tbody tr");
+    for (let index = 0; index < rows.length; index++) {
+      const row = rows[index];
+
+      const [alpha2, name, , , notes] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
+        })
+        .toArray();
+      if (!name) continue;
+
+      entries.push({ alpha2, name, notes });
+    }
+
+    rows = indeterminateTable.find("tbody tr");
+    for (let index = 0; index < rows.length; index++) {
+      const row = rows[index];
+
+      const [alpha2, name] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
+        })
+        .toArray();
+      if (!name) continue;
+
+      entries.push({ alpha2, name, notes: "" });
+    }
+    rows = deletedTable.find("tbody tr");
+
+    for (let index = 0; index < rows.length; index++) {
+      const row = rows[index];
+      const [alpha2, name, , notes] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
+        })
+        .toArray();
+      if (!name) continue;
+      entries.push({ alpha2, name, notes });
+    }
+
+    reserved = _.map(entries, (_) => ({
+      ..._,
+      state: iso31661.find((i) => _.alpha2 === i.code).state,
+    }));
+
+    reserved = _.sortBy(reserved, "alpha2");
+
+    iso31661 = _.sortBy(iso31661, "code");
+  };
+
+  const handleAssigned = async () => {
+    const response = await axios.get(urls.iso3166);
+    const $ = load(response.data);
+    const table = $("table.wikitable")[1];
+    for (let index = 0; index < $(table).find("tr").length; index++) {
+      const row = $(table).find("tr")[index];
+      const [name, alpha2, alpha3, numeric, , independent] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
+        })
+        .toArray();
+      if (!name) continue;
+      const altNames = [
+        clean($(row).find("td:first-child a[title!='']").attr("title") ?? ""),
+        name.split(",")[0].trim(),
+        name.replace(/\(.*?\)/gm, "").trim(),
+        alpha3 === "NLD" ? `${name.split(",")[0]} (the)` : "",
+      ];
+      const isoInstance = iso31661.find((_) => _.code === alpha2);
+      if (!isoInstance)
+        throw new Error(`Assigned Country not found ==> ${alpha2}`);
+
+      assigned.push({
+        name,
         alpha2,
         alpha3,
-        numericCode,
-        `"${internetTLD}"`,
-        `"${currencies}"`,
-        `"${langs}"`,
-        `"${capital}"`,
-        callingCode.length > 0 ? `"+${callingCode}"` : "",
-      ]);
-    });
+        numeric,
+        independent: booleanify(independent),
+        status: isoInstance.state,
+        altNames,
+      });
 
-    const values = [...countries.values()];
+      assigned = _.sortBy(assigned, "name");
+    }
+  };
 
-    const csvHeader = [
-      "Name",
-      "Secondary Name",
-      "Official Name",
-      "Alpha 2",
-      "Alpha 3",
-      "Numeric Code",
-      "Internet TLD",
-      "Currencies",
-      "Languages",
-      "Capital",
-      "Calling Code",
-    ];
+  const handleExtended = async () => {
+    const response = await axios.get(urls.iso3166Extended);
+    const $ = load(response.data);
+    const table = $("table.wikitable");
+    const entries: any[] = [];
+    const cells = $(table).find("tr");
+    for (let index = 0; index < cells.length; index++) {
+      const row = cells[index];
+      const [, officialName, sovereignty, , alpha3, numeric, , ccTLD] = $(row)
+        .find("td")
+        .map(function () {
+          return clean($(this).text());
+        })
+        .toArray() as any as string[];
+      const name = clean($(row).find("td:first-child a:first-of-type").text());
+      if (!name || $(row).children().length < 2) continue;
+      const alpha2 = clean($(row).find("td:nth-child(4) a span").text().trim());
+      const isoInstance = assigned.find((_) => _.alpha2 == alpha2);
+      if (!isoInstance)
+        throw new Error(`${alpha2} not found in assigned codes`);
+      entries.push({
+        alpha2,
+        officialName,
+        ccTLD: ccTLD.split(" "),
+        altNames: isoInstance.altNames.concat([name, officialName]),
+        sovereignty,
+      });
+    }
+    assigned = _.sortBy(
+      _.map(assigned, (_) =>
+        mergeWith(
+          _,
+          entries.find((e) => e.alpha2 == _.alpha2),
+          (v, src) => {
+            if (isArray(v)) return uniq(v.concat(src));
+          }
+        )
+      ),
+      "name"
+    );
+  };
 
-    if (values.some((_) => _.length != csvHeader.length))
-      throw new Error("Rows Columns not matched");
+  const handleExtraAltNames = async () => {
+    const response = await axios.get(urls.iso3166AltNames);
+    const $ = load(response.data);
+    const tables = $("table.wikitable");
 
-    const dataToWrite = [csvHeader, ...values]
-      .map((_) => _.join(","))
-      .join("\n");
-    return dataToWrite;
-  },
-});
+    const entries: any[] = [];
+    for (let indexT = 0; indexT < tables.length; indexT++) {
+      const table = tables[indexT];
 
-getData({
-  url: "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
-  filePath: "src/data/csv/countries_meta.csv",
-  cb($) {
-    const rows = $(".plainlist ul li")
-      .map(function () {
-        return $(this).find("span.monospaced").text().trim();
-      })
-      .toArray();
-    const csvHeader = ["Total"];
-    const dataToWrite = [csvHeader, [rows.length]]
-      .map((_) => _.join(","))
-      .join("\n");
-    return dataToWrite;
-  },
-});
+      const cells = $(table).find("tr");
+      for (let index = 0; index < cells.length; index++) {
+        const row = cells[index];
+        const [alpha3] = $(row)
+          .find("td")
+          .map(function () {
+            return clean($(this).text());
+          })
+          .toArray() as any as string[];
+        if (!alpha3) continue;
+        const name = clean($(row).find("td:nth-child(2) a").text().trim());
+        const isoInstance = assigned.find((_) => _.alpha3 == alpha3);
 
-getData({
-  url: "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3",
-  filePath: "src/data/csv/countries_codes_meta.csv",
-  cb($) {
-    const rows = $(".plainlist ul li")
-      .map(function () {
-        return Array.from([$(this).find("span.monospaced").text().trim()]);
-      })
-      .toArray();
-    const csvHeader = ["Code"];
-    const dataToWrite = [csvHeader, rows].map((_) => _.join("\n")).join("\n");
-    return dataToWrite;
-  },
-});
+        if (!isoInstance)
+          throw new Error(`${alpha3} not found in assigned codes`);
+        entries.push({
+          alpha3,
+          altNames: isoInstance.altNames.concat([name]),
+        });
+      }
+    }
+
+    // assigned = sortBy(
+    //   map(entries, (_) => ({ ..._, altNames: uniq(_.altNames) })),
+    //   "name"
+    // );
+
+    assigned = _.sortBy(
+      _.map(assigned, (_) =>
+        mergeWith(
+          _,
+          entries.find((e) => e.alpha3 == _.alpha3),
+          (v, src) => {
+            if (isArray(v)) return uniq(v.concat(src));
+          }
+        )
+      ),
+      "name"
+    );
+  };
+
+  await handleIso3166();
+  await handleAssigned();
+  await handleExtended();
+  await handleExtraAltNames();
+
+  assigned = _.map(assigned, (_) => ({
+    ..._,
+    altNames: _.altNames.filter((_: string) => _ !== ""),
+  }));
+
+ 
+
+  return {
+    iso31661: _.sortBy(iso31661, "name") as Array<Iso3166>,
+    reserved,
+    assigned: assigned as Array<CollectedCountry>,
+  };
+}

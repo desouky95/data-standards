@@ -1,89 +1,72 @@
 import {
   Alpha2,
   Alpha3,
-  CallingCode,
-  CountryNumericCode,
+  CountrySovereignty,
   Currency,
   CurrencyCode,
   FifaCode,
+  IsoCodeState,
+  IsoCountry,
   OlympicCode,
-  QueryArgs,
-  TLD,
-  callingCodes,
-  capitals,
   countries,
   currencies,
-  fifaCodes,
-  iocCodes,
-  languages,
-  LanguageAlpha3,
 } from "@desoukysvyc/data-collector";
-import {
-  filter,
-  find,
-  intersectionBy,
-  keyBy,
-  map,
-  merge,
-  omit,
-  unionBy,
-  split,
-  unionWith,
-  values,
-} from "lodash";
-import { LiteralToPrimitiveDeep, WritableDeep } from "type-fest";
 
-Array.prototype.query = function <T>(this: Array<T>, args: QueryArgs<T>) {
-  return filter(this, args);
-};
+export default class Country {
+  private country!: IsoCountry;
+  private name!: string;
+  private alpha2!: Alpha2;
+  private alpha3!: Alpha3;
+  private numeric!: string;
+  private independent!: boolean;
+  private status!: IsoCodeState;
+  private altNames!: Array<string>;
+  private callingCode!: string;
+  private "officialName"!: string;
+  private "ccTLD"!: Array<string>;
+  private "sovereignty"!: CountrySovereignty;
+  private "fifa"?: FifaCode;
+  private "ioc"?: OlympicCode;
+  private "capital"!: string;
+  private "currencies"!: Array<CurrencyCode>;
 
-export type Country = Omit<
-  LiteralToPrimitiveDeep<WritableDeep<(typeof countries)[number]>>,
-  "alpha2" | "alpha3" | "internetTld" | "numericCode"
-> & {
-  alpha2: Alpha2;
-  alpha3: Alpha3;
-  internetTld: TLD[];
-  numericCode: CountryNumericCode;
-};
+  constructor(code: string) {
+    if (code.length === 3)
+      this.country = countries.find((_) => _.alpha3 === code) as any;
+    if (code.length === 2)
+      this.country = countries.find((_) => _.alpha2 === code) as any;
 
-export type ExtendedCountry = Country & {
-  fifaCode: FifaCode;
-  iocCode: OlympicCode;
-  callingCode: string;
-  currencies: Array<CurrencyCode>;
-  capital: string;
-  languages: Array<LanguageAlpha3>;
-};
+    if (!this.country) throw new Error("Country not found");
+    for (const key in this.country) {
+      Object.defineProperty(this, key, {
+        get: () => this.country[key as unknown as any],
+      });
+    }
+  }
 
-var _countries = map(countries, (c) => {
-  const fifaCode = find(fifaCodes, (_) => _.country === c.name)?.code;
-  const iocCode = find(iocCodes, (_) => _.country === c.name)?.code;
+  static fromAlpha3(code: Alpha3) {
+    return new Country(code);
+  }
+  static fromAlpha2(code: Alpha2) {
+    return new Country(code);
+  }
 
-  return {
-    ...c,
-    fifaCode,
-    iocCode,
-  };
-}) as any as Array<ExtendedCountry>;
+  static all = countries.map((_) => Country.fromAlpha2(_.alpha2).country);
 
-export type FifaWCountry = {
-  name?: string;
-  alpha2?: string;
-  alpha3?: string;
-  internetTld?: string[];
-  numericCode?: string;
-  officialName?: string;
-  country: string;
-  code: FifaCode;
-  federation: string;
-};
+  static expanded = countries.map((_) => {
+    const country = Country.fromAlpha2(_.alpha2);
+    const _currencies = currencies.filter((_) =>
+      country.country.currencies.includes(_.alpha3)
+    ) as any as Array<Currency>;
+    return { ...country.country, currencies: _currencies } as Omit<
+      IsoCountry,
+      "currencies"
+    > & { currencies: Array<Currency> };
+  });
 
-var fifaWithCountry = values(
-  merge(keyBy(countries, "name"), keyBy(fifaCodes, "country"))
-) as any as Array<FifaWCountry>;
-
-export {
-  _countries as countries,
-  fifaWithCountry as countriesFootballFederations,
-};
+  get expandCurrencies() {
+    return currencies.filter((_) =>
+      this.country.currencies.includes(_.alpha3)
+    ) as Array<Currency>;
+  }
+}

@@ -3,9 +3,15 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@desoukysvyc/data-utils","@desoukysvyc/data-collector", "@desoukysvyc/currency"]],
+  "linked": [
+    [
+      "@desoukysvyc/data-utils",
+      "@desoukysvyc/data-collector",
+      "@desoukysvyc/currency"
+    ]
+  ],
   "access": "public",
-  "privatePackages": {"tag": true,"version": true},
+  "privatePackages": { "tag": true, "version": true },
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": []

@@ -6,9 +6,7 @@ import {
   currencies,
   callingCodes,
   fifaCodes,
-  languages,
   iocCodes,
-  regions,
 } from "../src";
 
 describe("Data", () => {
@@ -32,11 +30,11 @@ describe("Data", () => {
       assert(_.isArray(fifaCodes));
     });
   });
-  describe("Languages", () => {
-    it("Should be array", () => {
-      assert(_.isArray(languages));
-    });
-  });
+  // describe("Languages", () => {
+  //   it("Should be array", () => {
+  //     assert(_.isArray(languages));
+  //   });
+  // });
 
   describe("ioc Codes", () => {
     it("Should be array", () => {

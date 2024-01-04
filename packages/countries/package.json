@@ -1,23 +1,22 @@
 {
   "name": "@desoukysvyc/countries",
-  "version": "0.0.1",
-  "main": "./dist/index.js",
+  "version": "0.0.13",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "type": "module",
   "scripts": {
     "build:types": "tsc ",
     "transpile": "swc ./src -d dist --copy-files --config-file ../../.swcrc",
-    "build": "npm run build:types && npm run transpile",
-    "copy-package": "ts-node ../../utils/copyPackage.ts",
+    "build": "ts-node ../../scripts/build.ts",
+    "copy-package": "ts-node ../../scripts/copyPackage.ts",
     "prepublish": "npm run copy-package",
     "publish": "npm publish dist",
-    "test" : "mocha --recursive --require ts-node/register test/*.spec.ts"
+    "test": "mocha --recursive --require ts-node/register test/*.spec.ts"
   },
   "dependencies": {
-    "@desoukysvyc/currency": "*",
     "@desoukysvyc/data-collector": "*"
   },
-  "peerDependencies": {
-    "lodash": "^4.17.21"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "ts-node": "^10.9.1"
   },

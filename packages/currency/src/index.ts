@@ -1,20 +1,42 @@
-import _, { filter } from "lodash";
 import {
-  currencies,
-  countries,
   CurrencyCode,
-  QueryArgs,
-  Currency,
-  currenciesMeta,
+  currencies,
+  Currency as IsoCurrency,
+  countries,
+  CurrencyNum,
+  Alpha3,
 } from "@desoukysvyc/data-collector";
 
-let data = _.map(currencies, (c) => ({
-  ...c,
-  decimal: Number(c.decimal),
-})) as any as Array<Currency>;
+export default class Currency {
+  private currency: IsoCurrency;
 
-Array.prototype.query = function <T>(this: Array<T>, args: QueryArgs<T>) {
-  return filter(this, args);
-};
+  readonly "name": string;
+  readonly "alpha3": CurrencyCode;
+  readonly "numeric": CurrencyNum;
+  readonly "units": number;
 
-export { data as currencies, currenciesMeta };
+  constructor(code: CurrencyCode) {
+    const currency = currencies.find((_) => _.alpha3 === code);
+    if (!currency) throw new Error("Currency not found");
+    this.currency = currency as any as IsoCurrency;
+    for (const key in this.currency) {
+      Object.defineProperty(this, key, { get: () => this.currency[key] });
+    }
+  }
+
+  get formatted_name() {
+    return typeof this.currency.name === "object"
+      ? this.currency.name.$t
+      : this.currency.name;
+  }
+
+  static all = currencies.map((_) => new Currency(_.alpha3));
+
+  get usage() {
+    return countries
+      .filter((_) =>
+        (_.currencies as any as Array<CurrencyCode>).includes(this.alpha3)
+      )
+      .map((_) => _.alpha3);
+  }
+}

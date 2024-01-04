@@ -1,10 +1,17 @@
-import { getData } from "@desoukysvyc/data-utils";
-getData({
-  filePath: "src/data/csv/fifa.csv",
-  url: "https://en.wikipedia.org/wiki/List_of_FIFA_country_codes#FIFA_member_codes",
-  cb($) {
-    const footballFederations: Map<string, Array<string>> = new Map();
+import { createTypescript, getData } from "@desoukysvyc/data-utils";
+import { urls } from "../../utils/urls";
+import axios from "axios";
+import { load } from "cheerio";
+import  _ from "lodash";
 
+export default async function collect() {
+  const handleFifa = async () => {
+    const response = await axios.get(urls.fifaCodes);
+    const $ = load(response.data);
+    const footballFederations: Map<
+      string,
+      { country: string; federationName: string; code: string }
+    > = new Map();
     $("h2 span#Non-FIFA_member_codes")
       .parent()
       .prevAll("table.wikitable")
@@ -19,28 +26,27 @@ getData({
               ?.trim();
             const code = $(this).find("td:nth-child(2)").text().trim();
             if (country)
-              footballFederations.set(country, [
+              footballFederations.set(country, {
                 country,
-                federationName ?? "",
+                federationName: federationName ?? "",
                 code,
-              ]);
+              });
           });
       });
 
-    const csvHeader = ["Country", "Federation", "Code"];
-    const dataToWrite = [csvHeader, ...footballFederations.values()]
-      .map((_) => _.join(","))
-      .join("\n");
+    const data = _.orderBy(Array.from(footballFederations.values()), "country");
 
-    return dataToWrite;
-  },
-});
 
-getData({
-  filePath: "src/data/csv/olympic_codes.csv",
-  url: "https://en.wikipedia.org/wiki/List_of_IOC_country_codes#Current_NOCs",
-  cb($) {
-    const nationalIOCs: Map<string, Array<string>> = new Map();
+
+  
+    return data;
+  };
+
+  const handleIOC = async () => {
+    const response = await axios.get(urls.olympicCodes);
+    const $ = load(response.data);
+    const nationalIOCs: Map<string, { country: string; code: string }> =
+      new Map();
 
     $("h2 span#Current_NOCs")
       .parent()
@@ -51,14 +57,38 @@ getData({
         const code = $(this).find("td:first-child span").text().trim();
         const country = $(this).find("td:nth-child(2) a").text().trim();
 
-        if (country) nationalIOCs.set(country, [country, code]);
+        if (country) nationalIOCs.set(code, { country, code });
       });
 
-    const csvHeader = ["Country", "Code"];
-    const dataToWrite = [csvHeader, ...nationalIOCs.values()]
-      .map((_) => _.join(","))
-      .join("\n");
+    const data = _.sortBy(Array.from(nationalIOCs.values()), "country");
 
-    return dataToWrite;
-  },
-});
+   
+    return data;
+  };
+
+  const handleComparisonISO = async () => {
+    const response = await axios.get(urls.fifaComparisonCountryCodes);
+    const $ = load(response.data);
+
+    const rows = $(
+      "table.wikitable:first-of-type tbody tr:has(td:nth-child(4):not(:empty),td:nth-child(5):not(:empty))"
+    );
+
+    const data = rows
+      .map(function () {
+        const iso = $(this).find("td:nth-child(5)").text().trim();
+        const fifa = $(this).find("td:nth-child(4)").text().trim();
+        const ioc = $(this).find("td:nth-child(3)").text().trim();
+        return { iso, fifa, ioc };
+      })
+      .toArray();
+
+    return data;
+  };
+
+  return {
+    fifaCodes: await handleFifa(),
+    iocCodes: await handleIOC(),
+    comparisonIso: await handleComparisonISO(),
+  };
+}

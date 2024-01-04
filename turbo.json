@@ -6,12 +6,6 @@
       "cache": false
     },
 
-    "lint": {},
-    "get-data": {
-      "cache": false,
-      "outputMode": "full",
-      "inputs": ["src/**"]
-    },
     "normalize-data": {
       "cache": false
     },

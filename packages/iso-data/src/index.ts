@@ -8,7 +8,7 @@ import {
   fifaCodes,
   iocCodes,
 } from "@desoukysvyc/data-collector";
-import _ = require("lodash");
+import * as _ from "lodash";
 
 var _callingCodes = callingCodes as any as Array<CallingCode>;
 

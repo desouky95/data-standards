@@ -1,24 +1,39 @@
 {
   "name": "@desoukysvyc/data-collector",
-  "version": "0.0.17",
+  "version": "0.0.30",
+  "module": "src/index.ts",
   "main": "src/index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=12.22.7"
+  },
   "scripts": {
-    "collect": "ts-node ./tasks/collector.ts",
+    "collect": "ts-node  ./tasks/collector.ts",
     "normalize": "ts-node ./tasks/normalize.ts",
     "parse": "ts-node ./tasks/parse.ts",
     "dev": "npm run collect && npm run normalize && npm run parse",
     "build:types": "tsc ",
-    "copy-package": "ts-node ../../utils/copyPackage.ts",
+    "copy-package": "ts-node ../../scripts/copyPackage.ts",
     "transpile": "swc ./src -d dist --config-file ../../.swcrc",
-    "build": "npm run build:types && npm run transpile ",
+    "build": "ts-node ../../scripts/build.ts ",
     "prepublishOnly": "npm run copy-package",
     "publish": "npm publish dist",
-    "test" : "mocha --recursive --require ts-node/register test/*.spec.ts"
-
+    "test": "mocha --recursive --require ts-node/register test/*.spec.ts"
   },
   "publishConfig": {
     "access": "public",
     "directory": "./dist"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./dist": "./dist",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "currency-symbol-map": "^5.1.0"

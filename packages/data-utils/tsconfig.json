@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "target": "es2015",
+    "emitDeclarationOnly": true,
+    "declaration": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

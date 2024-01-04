@@ -1,13 +1,19 @@
 {
   "name": "@desoukysvyc/data-utils",
   "version": "0.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "module": "./esm/index.js",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "echo 'Add dev script here'",
-    "build": "swc ./index.ts -d dist --config-file ../../.swcrc",
-    "test": "echo 'Add test script here'",
-    "lint": "echo 'Add lint script here'"
+    "build:cjs": "swc ./src -d dist --config-file ../../.swcrc --source-root ./",
+    "build:mjs": "swc ./src -d dist/esm --config-file ../../.swcrc -C module.type=es6 --source-root ./",
+    "build:types": "tsc ",
+    "copy-package": "ts-node ../../scripts/copyPackage.ts",
+    "build": "ts-node ../../scripts/build.ts",
+    "typedoc": "npx typedoc src/index.ts --plugin typedoc-material-theme --themeColor #D23A2D --plugin typedoc-plugin-mdn-links --hideGenerator",
+    "exec": "ts-node ./commands/exec.ts",
+    "testRoot": "ts-node scripts/build.ts"
   },
   "publishConfig": {
     "access": "public"

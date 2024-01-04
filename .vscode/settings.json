@@ -3,5 +3,6 @@
         "desoukysvyc",
         "Fifa",
         "rewitten"
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/packages/data-utils/docs/index.html"
 }
